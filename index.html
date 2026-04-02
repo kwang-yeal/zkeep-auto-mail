@@ -7,104 +7,34 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, sans-serif;
-      background: #f5f6f8;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 40px 16px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      padding: 40px;
-      width: 100%;
-      max-width: 520px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #ED5C43;
-    }
-    .logo-row img { width: 100px; height: auto; }
-    .logo-row span { font-size: 13px; color: #9ca3af; }
-    h1 { font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 6px; }
-    .subtitle { font-size: 13px; color: #6b7280; margin-bottom: 28px; line-height: 1.7; }
-    label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
-    input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 14px;
-      color: #111827;
-      margin-bottom: 16px;
-      outline: none;
-      transition: border 0.2s;
-      font-family: inherit;
-      background: #fff;
-    }
-    input:focus { border-color: #ED5C43; box-shadow: 0 0 0 3px rgba(237,92,67,0.1); }
-    .btn-primary {
-      width: 100%;
-      padding: 14px;
-      background: #ED5C43;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 4px;
-      transition: background 0.2s;
-      font-family: inherit;
-    }
-    .btn-primary:hover { background: #d94e37; }
-    .btn-primary:disabled { background: #e5e7eb; color: #9ca3af; cursor: not-allowed; }
-    .btn-secondary {
-      width: 100%;
-      padding: 12px;
-      background: #fff;
-      color: #ED5C43;
-      border: 1.5px solid #ED5C43;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.2s;
-      font-family: inherit;
-    }
-    .btn-secondary:hover { background: #fff8f7; }
-    .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
-    .status {
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      text-align: center;
-      display: none;
-      line-height: 1.6;
-    }
-    .status.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; display: block; }
-    .status.error   { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; display: block; }
-    .status.loading { background: #fff8f7; color: #ED5C43; border: 1px solid #fcd5cc; display: block; }
-    .history-section { margin-top: 28px; }
-    .history-title { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 10px; }
-    .history-item {
-      font-size: 12px; color: #6b7280;
-      padding: 8px 12px; background: #f9fafb;
-      border-radius: 6px; margin-bottom: 6px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .sent-badge { color: #10b981; font-weight: 600; font-size: 11px; }
+    body { font-family: "Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif; background:#f5f6f8; min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:40px 16px; }
+    .card { background:#fff; border-radius:16px; border:1px solid #e5e7eb; padding:40px; width:100%; max-width:520px; box-shadow:0 4px 24px rgba(0,0,0,0.07); }
+    .logo-row { display:flex; align-items:center; gap:12px; margin-bottom:28px; padding-bottom:20px; border-bottom:2px solid #ED5C43; }
+    .logo-row img { width:100px; height:auto; }
+    .logo-row span { font-size:13px; color:#9ca3af; }
+    h1 { font-size:20px; font-weight:700; color:#111827; margin-bottom:6px; }
+    .subtitle { font-size:13px; color:#6b7280; margin-bottom:28px; line-height:1.7; }
+    label { display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:6px; }
+    input { width:100%; padding:11px 14px; border:1px solid #e5e7eb; border-radius:8px; font-size:14px; color:#111827; margin-bottom:16px; outline:none; transition:border 0.2s; font-family:inherit; background:#fff; }
+    input:focus { border-color:#ED5C43; box-shadow:0 0 0 3px rgba(237,92,67,0.1); }
+    .btn-primary { width:100%; padding:14px; background:#ED5C43; color:#fff; border:none; border-radius:10px; font-size:15px; font-weight:700; cursor:pointer; margin-top:4px; transition:background 0.2s; font-family:inherit; }
+    .btn-primary:hover { background:#d94e37; }
+    .btn-primary:disabled { background:#e5e7eb; color:#9ca3af; cursor:not-allowed; }
+    .btn-secondary { width:100%; padding:12px; background:#fff; color:#ED5C43; border:1.5px solid #ED5C43; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; margin-top:10px; transition:background 0.2s; font-family:inherit; }
+    .btn-secondary:hover { background:#fff8f7; }
+    .status { margin-top:14px; padding:12px 16px; border-radius:8px; font-size:13px; text-align:center; display:none; line-height:1.6; }
+    .status.success { background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; display:block; }
+    .status.error { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; display:block; }
+    .status.loading { background:#fff8f7; color:#ED5C43; border:1px solid #fcd5cc; display:block; }
+    .history-section { margin-top:28px; }
+    .history-title { font-size:13px; font-weight:700; color:#374151; margin-bottom:10px; }
+    .history-item { font-size:12px; color:#6b7280; padding:8px 12px; background:#f9fafb; border-radius:6px; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; }
+    .sent-badge { color:#10b981; font-weight:600; font-size:11px; }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:flex-start; padding:20px; box-sizing:border-box; overflow-y:auto; }
+    .modal-inner { background:#fff; border-radius:12px; width:100%; max-width:720px; margin:auto; box-shadow:0 20px 60px rgba(0,0,0,0.3); overflow:hidden; }
+    .modal-header { display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid #e5e7eb; background:#f9fafb; }
+    .modal-body { overflow-y:auto; max-height:80vh; }
+    .btn-close { background:#ED5C43; border:none; color:#fff; font-size:13px; font-weight:600; padding:6px 14px; border-radius:6px; cursor:pointer; font-family:inherit; }
   </style>
 </head>
 <body>
@@ -113,265 +43,122 @@
     <img src="https://kwang-yeal.github.io/zkeep-auto-mail/logo.png" alt="지킴E"/>
     <span>안내 메일 발송 시스템</span>
   </div>
-
   <h1>지킴E 안내 메일 발송</h1>
   <p class="subtitle">받는 분 정보를 입력하면 <strong>jajadoo@myster.co.kr</strong>에서<br/>템플릿 이메일이 자동 발송됩니다.</p>
-
   <label>회사명</label>
   <input id="company" type="text" placeholder="예: 케이에스전기안전관리단"/>
   <label>성함</label>
   <input id="name" type="text" placeholder="예: 홍길동"/>
   <label>이메일 주소</label>
   <input id="email" type="email" placeholder="예: hong@example.com"/>
-
-  <button class="btn-primary" onclick="sendMail()">✉️ 안내 메일 발송</button>
-  <button class="btn-secondary" onclick="openPreview()">👁 발송 전 미리보기</button>
-
+  <button class="btn-primary" onclick="sendMail()">안내 메일 발송</button>
+  <button class="btn-secondary" onclick="openPreview()">발송 전 미리보기</button>
   <div class="status" id="status"></div>
-
-  <!-- Preview Modal -->
-  <div id="previewModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;justify-content:center;align-items:flex-start;padding:20px;box-sizing:border-box;overflow-y:auto;">
-    <div style="background:#fff;border-radius:12px;width:100%;max-width:720px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e7eb;background:#f9fafb;">
-        <span style="font-size:14px;font-weight:700;color:#111827;">📧 발송 전 미리보기</span>
-        <button onclick="closePreview()" style="background:#ED5C43;border:none;color:#fff;font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:inherit;">✕ 닫기</button>
-      </div>
-      <div id="previewContainer" style="padding:0;overflow-y:auto;max-height:80vh;"></div>
-    </div>
-  </div>
-
   <div class="history-section" id="historySection" style="display:none;">
-    <div class="divider"></div>
-    <div class="history-title">📋 최근 발송 내역</div>
+    <div style="height:1px;background:#f0f0f0;margin:24px 0;"></div>
+    <div class="history-title">최근 발송 내역</div>
     <div id="historyList"></div>
   </div>
 </div>
 
-<script>
-const EMAIL_TEMPLATE = `<!DOCTYPE html>
-<html lang="ko">
-<head><meta charset="UTF-8"/></head>
-<body style="margin:0;padding:0;background-color:#f5f6f8;font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;color:#222222;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f5f6f8;margin:0;padding:24px 0;">
-<tr><td align="center">
-<table role="presentation" width="680" cellspacing="0" cellpadding="0" border="0" style="width:680px;max-width:680px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
-<tr><td style="padding:28px 40px 20px 40px;border-bottom:3px solid #ED5C43;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-<tr>
-<td style="vertical-align:middle;"><img src="https://kwang-yeal.github.io/zkeep-auto-mail/logo.png" alt="지킴E 로고" width="120" style="display:block;width:120px;height:auto;"/></td>
-<td align="right" style="vertical-align:middle;"><div style="font-size:12px;color:#9ca3af;">마이스터 | 지킴E 사용 안내</div></td>
-</tr></table></td></tr>
-<tr><td style="padding:28px 40px 0 40px;"><div style="font-size:24px;font-weight:700;color:#111827;line-height:1.4;">프로그램 사용 및 초기 세팅 안내</div></td></tr>
-<tr><td style="padding:20px 40px 8px 40px;font-size:15px;line-height:1.9;color:#374151;">
-안녕하세요, {{company}} {{name}} 대표님.<br/>마이스터 유광열입니다.<br/><br/>
-먼저 바쁘신 와중에도 교육에 참석해 주셔서 진심으로 감사드립니다.<br/>
-짧은 시간 내에 많은 내용을 전달드리다 보니 부족한 부분이 있었을 수 있습니다.<br/>
-이용 중 궁금하신 점은 언제든 편하게 문의 주시면 상세히 안내드리겠습니다.<br/><br/>
-또한, 말씀드린 것처럼 {{company}} 전체 도입을 검토하실 경우, 초대해 주시면 초기 세팅 및 사내 전직원을 대상으로 한 교육을 지원드리겠습니다.
-</td></tr>
-<tr><td style="padding:28px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #ED5C43;border-radius:10px;">
-<tr><td style="padding:24px;">
-<div style="font-size:16px;font-weight:700;color:#ED5C43;margin-bottom:4px;">✦ 프로그램 사용을 위한 전체 흐름 (가장 중요)</div>
-<div style="font-size:14px;line-height:1.8;color:#6b7280;margin-bottom:16px;">지킴E는 아래 순서로 사용이 시작됩니다.</div>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0">
-<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">1</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">사업자 계정 생성 <span style="font-weight:400;color:#6b7280;">(관리자 계정)</span></td></tr>
-<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">2</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">직원 개별 회원가입 진행</td></tr>
-<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">3</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">관리자 승인 후 점검자 앱 사용 가능</td></tr>
-</table></td></tr></table></td></tr>
-<tr><td style="padding:36px 40px 8px 40px;">
-<div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:6px;">초기 세팅 단계 안내</div>
-<div style="font-size:14px;color:#6b7280;">아래 단계 순서대로 진행하시면 됩니다.</div>
-</td></tr>
-<tr><td style="padding:10px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #d1d5db;">
-<tr><td style="padding:18px 22px;">
-<div style="font-size:12px;font-weight:700;color:#9ca3af;margin-bottom:4px;">STEP 0</div>
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">빠른 이용 흐름 이해</div>
-<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">처음 시작 전 전체 흐름을 가볍게 확인해주세요.</div>
-<a href="https://guide.zkeep.space/16d43012-c483-4e2f-acf6-48236cb5bd9e" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">빠른 이용가이드 보기 →</a>
-</td></tr></table></td></tr>
-<tr><td style="padding:10px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
-<tr><td style="padding:18px 22px;">
-<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 1</div>
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">사업자 계정 생성 <span style="font-size:13px;font-weight:400;color:#6b7280;">(관리자 계정)</span>&nbsp;&nbsp;<a href="https://site.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;">관리자 페이지 ↗</a></div>
-<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">회사의 관리자용 사업자 계정을 먼저 생성합니다.</div>
-<a href="https://guide.zkeep.space/23633657-85ba-409c-8dcd-13b22bac4f39" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">사업자 계정 생성 가이드 보기 →</a>
-</td></tr></table></td></tr>
-<tr><td style="padding:10px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
-<tr><td style="padding:18px 22px;">
-<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 2</div>
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">사업자 정보 등록</div>
-<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">계정 생성 후 추가 사업자 정보를 등록하는 단계입니다.</div>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;">
-<tr><td style="padding:10px 14px;font-size:13px;color:#374151;">① 기본 정보 등록&nbsp;&nbsp;<a href="https://guide.zkeep.space/77ff0b5b-1d73-48f5-adcd-07d3f7af8dda" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
-<tr><td style="padding:0 14px 10px 14px;font-size:13px;color:#374151;">② 계좌 및 지로 정보 등록 <span style="color:#9ca3af;">(※ 계약/청구 기능 사용 시 필수)</span>&nbsp;&nbsp;<a href="https://guide.zkeep.space/559e02ab-89ea-43ab-819c-1f7f92e93845" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
-</table></td></tr></table></td></tr>
-<tr><td style="padding:10px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
-<tr><td style="padding:18px 22px;">
-<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 3</div>
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">고객(수용가) 정보 업로드</div>
-<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">아래 두 가지 방법 중 하나를 선택하여 업로드하시면 됩니다.</div>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;">
-<tr><td style="padding:10px 14px;font-size:13px;color:#374151;border-bottom:1px solid #e5e7eb;">① 고객 정보 + 계약/청구 정보 함께 업로드&nbsp;&nbsp;<a href="https://guide.zkeep.space/10dea30c-ee6f-80e4-b26b-cdf670ac61e5" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
-<tr><td style="padding:10px 14px;font-size:13px;color:#374151;">② 협회 데이터 기반 수용가 정보만 업로드&nbsp;&nbsp;<a href="https://guide.zkeep.space/2fb9264e-5af2-433a-8463-80909519c8c6" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
-</table></td></tr></table></td></tr>
-<tr><td style="padding:10px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
-<tr><td style="padding:18px 22px;">
-<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 4</div>
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">직원 등록 및 승인</div>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;margin-bottom:12px;">
-<tr><td style="padding:10px 14px 4px 14px;font-size:13px;color:#374151;">
-① 직원들이 개별 회원가입 진행 &nbsp;
-<a href="https://app.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;">점검자 앱 바로가기 ↗</a>
-</td></tr>
-<tr><td style="padding:4px 14px;font-size:13px;color:#374151;">② 가입 시 자동으로 가입 승인 요청 발생</td></tr>
-<tr><td style="padding:4px 14px;font-size:13px;color:#374151;">③ 관리자가 승인하면 사용 가능</td></tr>
-<tr><td style="padding:4px 14px 10px 14px;font-size:13px;color:#374151;">④ 관리자가 사전에 직원 정보 등록 시 → 승인 없이 바로 이용 가능</td></tr>
-</table>
-<div style="font-size:12px;color:#9ca3af;margin-bottom:10px;">초기 테스트 시에는 일부 인원만 등록하셔도 됩니다.</div>
-<a href="https://guide.zkeep.space/10dea30c-ee6f-80cb-a343-dc4117f5e274" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">직원 등록 가이드 보기 →</a>
-</td></tr></table></td></tr>
-<tr><td style="padding:28px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;">
-<tr><td style="padding:20px 24px;">
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">처음 사용하실 때 꼭 참고해주세요</div>
-<div style="font-size:13px;line-height:1.9;color:#4b5563;">처음에는 낯설어서 어렵게 느껴지는 것이 당연합니다.<br/>초기 세팅은 저희가 직접 도와드리고 있으니 부담 갖지 마시고 편하게 연락 주세요.</div>
-</td></tr></table></td></tr>
-<tr><td style="padding:20px 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;">
-<tr><td style="padding:20px 24px;">
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">관리자 전체 가이드</div>
-<div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">모든 세팅 방법을 단계별로 확인하실 수 있습니다.</div>
-<a href="https://guide.zkeep.space" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">관리자 가이드 바로가기</a>
-</td></tr></table></td></tr>
-<tr><td style="padding:0 40px 0 40px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;">
-<tr><td style="padding:20px 24px;">
-<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">📄 교육자료</div>
-<div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">
-지킴E 프로그램 사용 교육자료를 아래 버튼을 통해 다운로드 하실 수 있습니다.
+<div class="modal" id="previewModal">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <span style="font-size:14px;font-weight:700;color:#111827;">발송 전 미리보기</span>
+      <button class="btn-close" onclick="closePreview()">닫기</button>
+    </div>
+    <div class="modal-body" id="previewContainer"></div>
+  </div>
 </div>
-<a href="https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">교육자료 다운로드 ↓</a>
-</td></tr></table></td></tr>
-<tr><td style="padding:32px 40px 40px 40px;border-top:1px solid #f0f0f0;">
-<div style="font-size:14px;line-height:1.9;color:#374151;">
-필요하시면 전화 또는 방문 지원도 가능합니다.<br/>편하게 연락 주시면 빠르게 도와드리겠습니다.<br/><br/>
-감사합니다.<br/>마이스터 유광열 드림
-<br/><br/>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="border-top:2px solid #ED5C43;margin-top:12px;padding-top:14px;width:100%;">
-  <tr>
-    <td style="padding-top:12px;">
-      <div style="font-size:13px;font-weight:700;color:#111827;">유광열 &nbsp;<span style="font-weight:400;color:#6b7280;font-size:12px;">| 마이스터</span></div>
-      <div style="margin-top:6px;font-size:12px;color:#4b5563;line-height:1.9;">
-        E. <span style="color:#ED5C43;">jajadoo@myster.co.kr</span><br/>
-        M. <a href="tel:010-9430-2217" style="color:#ED5C43;text-decoration:none;">010-9430-2217</a>
-      </div>
-    </td>
-  </tr>
-</table>
-</div></td></tr>
-</table></td></tr></table>
-</body></html>`;
-</script>
+
 <script>
-const EJ_PUBLIC   = 'j3JdosvV4IsWAhQvO';
-const EJ_SERVICE  = 'myster-guide';
-const EJ_TEMPLATE = 'myster-edu1';
+var EJ_PUBLIC = "j3JdosvV4IsWAhQvO";
+var EJ_SERVICE = "myster-guide";
+var EJ_TEMPLATE = "myster-edu1";
+var _tpl = "PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ+PG1ldGEgY2hhcnNldD0iVVRGLTgiLz48L2hlYWQ+Cjxib2R5IHN0eWxlPSJtYXJnaW46MDtwYWRkaW5nOjA7YmFja2dyb3VuZC1jb2xvcjojZjVmNmY4O2ZvbnQtZmFtaWx5OidBcHBsZSBTRCBHb3RoaWMgTmVvJywnTWFsZ3VuIEdvdGhpYycsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjojMjIyMjIyOyI+Cjx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIHdpZHRoPSIxMDAlIiBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjAiIGJvcmRlcj0iMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2Y1ZjZmODttYXJnaW46MDtwYWRkaW5nOjI0cHggMDsiPgo8dHI+PHRkIGFsaWduPSJjZW50ZXIiPgo8dGFibGUgcm9sZT0icHJlc2VudGF0aW9uIiB3aWR0aD0iNjgwIiBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjAiIGJvcmRlcj0iMCIgc3R5bGU9IndpZHRoOjY4MHB4O21heC13aWR0aDo2ODBweDtiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmY7Ym9yZGVyOjFweCBzb2xpZCAjZTVlN2ViO2JvcmRlci1yYWRpdXM6MTJweDtvdmVyZmxvdzpoaWRkZW47Ij4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoyOHB4IDQwcHggMjBweCA0MHB4O2JvcmRlci1ib3R0b206M3B4IHNvbGlkICNFRDVDNDM7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIj4KPHRyPgo8dGQgc3R5bGU9InZlcnRpY2FsLWFsaWduOm1pZGRsZTsiPjxpbWcgc3JjPSJodHRwczovL2t3YW5nLXllYWwuZ2l0aHViLmlvL3prZWVwLWF1dG8tbWFpbC9sb2dvLnBuZyIgYWx0PSLsp4DtgrRFIOuhnOqzoCIgd2lkdGg9IjEyMCIgc3R5bGU9ImRpc3BsYXk6YmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OmF1dG87Ii8+PC90ZD4KPHRkIGFsaWduPSJyaWdodCIgc3R5bGU9InZlcnRpY2FsLWFsaWduOm1pZGRsZTsiPjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxMnB4O2NvbG9yOiM5Y2EzYWY7Ij7rp4jsnbTsiqTthLAgfCDsp4DtgrRFIOyCrOyaqSDslYjrgrQ8L2Rpdj48L3RkPgo8L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjI4cHggNDBweCAwIDQwcHg7Ij48ZGl2IHN0eWxlPSJmb250LXNpemU6MjRweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNztsaW5lLWhlaWdodDoxLjQ7Ij7tlITroZzqt7jrnqgg7IKs7JqpIOuwjyDstIjquLAg7IS47YyFIOyViOuCtDwvZGl2PjwvdGQ+PC90cj4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoyMHB4IDQwcHggOHB4IDQwcHg7Zm9udC1zaXplOjE1cHg7bGluZS1oZWlnaHQ6MS45O2NvbG9yOiMzNzQxNTE7Ij4K7JWI64WV7ZWY7IS47JqULCB7e2NvbXBhbnl9fSB7e25hbWV9fSDrjIDtkZzri5guPGJyLz7rp4jsnbTsiqTthLAg7Jyg6rSR7Je07J6F64uI64ukLjxici8+PGJyLz4K66i87KCAIOuwlOyBmOyLoCDsmYDspJHsl5Drj4Qg6rWQ7Jyh7JeQIOywuOyEne2VtCDso7zshZTshJwg7KeE7Ius7Jy866GcIOqwkOyCrOuTnOumveuLiOuLpC48YnIvPgrsp6fsnYAg7Iuc6rCEIOuCtOyXkCDrp47snYAg64K07Jqp7J2EIOyghOuLrOuTnOumrOuLpCDrs7Tri4gg67aA7KGx7ZWcIOu2gOu2hOydtCDsnojsl4jsnYQg7IiYIOyeiOyKteuLiOuLpC48YnIvPgrsnbTsmqkg7KSRIOq2geq4iO2VmOyLoCDsoJDsnYAg7Ja47KCc65OgIO2OuO2VmOqyjCDrrLjsnZgg7KO87Iuc66m0IOyDgeyEuO2eiCDslYjrgrTrk5zrpqzqsqDsirXri4jri6QuPGJyLz48YnIvPgrrmJDtlZwsIOunkOyUgOuTnOumsCDqsoPsspjrn7wge3tjb21wYW55fX0g7KCE7LK0IOuPhOyeheydhCDqsoDthqDtlZjsi6Qg6rK97JqwLCDstIjrjIDtlbQg7KO87Iuc66m0IOy0iOq4sCDshLjtjIUg67CPIOyCrOuCtCDsoITsp4Hsm5DsnYQg64yA7IOB7Jy866GcIO2VnCDqtZDsnKHsnYQg7KeA7JuQ65Oc66as6rKg7Iq164uI64ukLgo8L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MjhweCA0MHB4IDAgNDBweDsiPgo8dGFibGUgcm9sZT0icHJlc2VudGF0aW9uIiB3aWR0aD0iMTAwJSIgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmY4Zjc7Ym9yZGVyOjFweCBzb2xpZCAjRUQ1QzQzO2JvcmRlci1yYWRpdXM6MTBweDsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjI0cHg7Ij4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiNFRDVDNDM7bWFyZ2luLWJvdHRvbTo0cHg7Ij7inKYg7ZSE66Gc6re4656oIOyCrOyaqeydhCDsnITtlZwg7KCE7LK0IO2dkOumhCAo6rCA7J6lIOykkeyalCk8L2Rpdj4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjE0cHg7bGluZS1oZWlnaHQ6MS44O2NvbG9yOiM2YjcyODA7bWFyZ2luLWJvdHRvbToxNnB4OyI+7KeA7YK0ReuKlCDslYTrnpgg7Iic7ISc66GcIOyCrOyaqeydtCDsi5zsnpHrkKnri4jri6QuPC9kaXY+Cjx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIj4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzo2cHggMDt2ZXJ0aWNhbC1hbGlnbjp0b3A7Ij48c3BhbiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7YmFja2dyb3VuZC1jb2xvcjojRUQ1QzQzO2NvbG9yOiNmZmY7Zm9udC1zaXplOjEycHg7Zm9udC13ZWlnaHQ6NzAwO3BhZGRpbmc6MnB4IDhweDtib3JkZXItcmFkaXVzOjRweDttYXJnaW4tcmlnaHQ6MTBweDsiPjE8L3NwYW4+PC90ZD48dGQgc3R5bGU9InBhZGRpbmc6NnB4IDA7Zm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NjAwO2NvbG9yOiMxMTE4Mjc7Ij7sgqzsl4XsnpAg6rOE7KCVIOyDneyEsSA8c3BhbiBzdHlsZT0iZm9udC13ZWlnaHQ6NDAwO2NvbG9yOiM2YjcyODA7Ij4o6rSA66as7J6QIOqzhOyglSk8L3NwYW4+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjZweCAwO3ZlcnRpY2FsLWFsaWduOnRvcDsiPjxzcGFuIHN0eWxlPSJkaXNwbGF5OmlubGluZS1ibG9jaztiYWNrZ3JvdW5kLWNvbG9yOiNFRDVDNDM7Y29sb3I6I2ZmZjtmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7cGFkZGluZzoycHggOHB4O2JvcmRlci1yYWRpdXM6NHB4O21hcmdpbi1yaWdodDoxMHB4OyI+Mjwvc3Bhbj48L3RkPjx0ZCBzdHlsZT0icGFkZGluZzo2cHggMDtmb250LXNpemU6MTVweDtmb250LXdlaWdodDo2MDA7Y29sb3I6IzExMTgyNzsiPuyngeybkCDqsJzrs4Qg7ZqM7JuQ6rCA7J6FIOynhO2WiTwvdGQ+PC90cj4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzo2cHggMDt2ZXJ0aWNhbC1hbGlnbjp0b3A7Ij48c3BhbiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7YmFja2dyb3VuZC1jb2xvcjojRUQ1QzQzO2NvbG9yOiNmZmY7Zm9udC1zaXplOjEycHg7Zm9udC13ZWlnaHQ6NzAwO3BhZGRpbmc6MnB4IDhweDtib3JkZXItcmFkaXVzOjRweDttYXJnaW4tcmlnaHQ6MTBweDsiPjM8L3NwYW4+PC90ZD48dGQgc3R5bGU9InBhZGRpbmc6NnB4IDA7Zm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NjAwO2NvbG9yOiMxMTE4Mjc7Ij7qtIDrpqzsnpAg7Iq57J24IO2bhCDsoJDqsoDsnpAg7JWxIOyCrOyaqSDqsIDriqU8L3RkPjwvdHI+CjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjM2cHggNDBweCA4cHggNDBweDsiPgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MjBweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNzttYXJnaW4tYm90dG9tOjZweDsiPuy0iOq4sCDshLjtjIUg64uo6rOEIOyViOuCtDwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTRweDtjb2xvcjojNmI3MjgwOyI+7JWE656YIOuLqOqzhCDsiJzshJzrjIDroZwg7KeE7ZaJ7ZWY7Iuc66m0IOuQqeuLiOuLpC48L2Rpdj4KPC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYm9yZGVyOjFweCBzb2xpZCAjZTVlN2ViO2JvcmRlci1yYWRpdXM6MTBweDtib3JkZXItbGVmdDo0cHggc29saWQgI2QxZDVkYjsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjE4cHggMjJweDsiPgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzljYTNhZjttYXJnaW4tYm90dG9tOjRweDsiPlNURVAgMDwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTVweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNzttYXJnaW4tYm90dG9tOjZweDsiPuu5oOuluCDsnbTsmqkg7Z2Q66aEIOydtO2VtDwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTNweDtjb2xvcjojNmI3MjgwO21hcmdpbi1ib3R0b206MTJweDsiPuyymOydjCDsi5zsnpEg7KCEIOyghOyytCDtnZDrpoTsnYQg6rCA67ON6rKMIO2ZleyduO2VtOyjvOyEuOyalC48L2Rpdj4KPGEgaHJlZj0iaHR0cHM6Ly9ndWlkZS56a2VlcC5zcGFjZS8xNmQ0MzAxMi1jNDgzLTRlMmYtYWNmNi00ODIzNmNiNWJkOWUiIHN0eWxlPSJjb2xvcjojRUQ1QzQzO3RleHQtZGVjb3JhdGlvbjpub25lO2ZvbnQtc2l6ZToxM3B4O2ZvbnQtd2VpZ2h0OjYwMDsiPuu5oOuluCDsnbTsmqnqsIDsnbTrk5wg67O06riwIOKGkjwvYT4KPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYm9yZGVyOjFweCBzb2xpZCAjZTVlN2ViO2JvcmRlci1yYWRpdXM6MTBweDtib3JkZXItbGVmdDo0cHggc29saWQgI0VENUM0MzsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjE4cHggMjJweDsiPgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7Y29sb3I6I0VENUM0MzttYXJnaW4tYm90dG9tOjRweDsiPlNURVAgMTwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTVweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNzttYXJnaW4tYm90dG9tOjZweDsiPuyCrOyXheyekCDqs4TsoJUg7IOd7ISxIDxzcGFuIHN0eWxlPSJmb250LXNpemU6MTNweDtmb250LXdlaWdodDo0MDA7Y29sb3I6IzZiNzI4MDsiPijqtIDrpqzsnpAg6rOE7KCVKTwvc3Bhbj4mbmJzcDsmbmJzcDs8YSBocmVmPSJodHRwczovL3NpdGUuemtlZXAuc3BhY2UiIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7YmFja2dyb3VuZC1jb2xvcjojRUQ1QzQzO2NvbG9yOiNmZmY7dGV4dC1kZWNvcmF0aW9uOm5vbmU7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6NzAwO3BhZGRpbmc6M3B4IDEwcHg7Ym9yZGVyLXJhZGl1czo0cHg7dmVydGljYWwtYWxpZ246bWlkZGxlOyI+6rSA66as7J6QIO2OmOydtOyngCDihpc8L2E+PC9kaXY+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxM3B4O2NvbG9yOiM2YjcyODA7bWFyZ2luLWJvdHRvbToxMnB4OyI+7ZqM7IKs7J2YIOq0gOumrOyekOyaqSDsgqzsl4XsnpAg6rOE7KCV7J2EIOuovOyggCDsg53shLHtlanri4jri6QuPC9kaXY+CjxhIGhyZWY9Imh0dHBzOi8vZ3VpZGUuemtlZXAuc3BhY2UvMjM2MzM2NTctODViYS00MDljLThkY2QtMTNiMjJiYWM0ZjM5IiBzdHlsZT0iY29sb3I6I0VENUM0Mzt0ZXh0LWRlY29yYXRpb246bm9uZTtmb250LXNpemU6MTNweDtmb250LXdlaWdodDo2MDA7Ij7sgqzsl4XsnpAg6rOE7KCVIOyDneyEsSDqsIDsnbTrk5wg67O06riwIOKGkjwvYT4KPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYm9yZGVyOjFweCBzb2xpZCAjZTVlN2ViO2JvcmRlci1yYWRpdXM6MTBweDtib3JkZXItbGVmdDo0cHggc29saWQgI0VENUM0MzsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjE4cHggMjJweDsiPgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7Y29sb3I6I0VENUM0MzttYXJnaW4tYm90dG9tOjRweDsiPlNURVAgMjwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTVweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNzttYXJnaW4tYm90dG9tOjZweDsiPuyCrOyXheyekCDsoJXrs7Qg65Ox66GdPC9kaXY+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxM3B4O2NvbG9yOiM2YjcyODA7bWFyZ2luLWJvdHRvbToxMnB4OyI+6rOE7KCVIOyDneyEsSDtm4Qg7LaU6rCAIOyCrOyXheyekCDsoJXrs7Trpbwg65Ox66Gd7ZWY64qUIOuLqOqzhOyeheuLiOuLpC48L2Rpdj4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmOWZhZmI7Ym9yZGVyLXJhZGl1czo2cHg7d2lkdGg6MTAwJTsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggMTRweDtmb250LXNpemU6MTNweDtjb2xvcjojMzc0MTUxOyI+4pGgIOq4sOuzuCDsoJXrs7Qg65Ox66GdJm5ic3A7Jm5ic3A7PGEgaHJlZj0iaHR0cHM6Ly9ndWlkZS56a2VlcC5zcGFjZS83N2ZmMGI1Yi0xZDczLTQ4ZjUtYWRjZC0wN2QzZjdhZjhkZGEiIHN0eWxlPSJjb2xvcjojRUQ1QzQzO3RleHQtZGVjb3JhdGlvbjpub25lO2ZvbnQtd2VpZ2h0OjYwMDsiPuqwgOydtOuTnCDrs7TquLAg4oaSPC9hPjwvdGQ+PC90cj4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzowIDE0cHggMTBweCAxNHB4O2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiMzNzQxNTE7Ij7ikaEg6rOE7KKMIOuwjyDsp4DroZwg7KCV67O0IOuTseuhnSA8c3BhbiBzdHlsZT0iY29sb3I6IzljYTNhZjsiPijigLsg6rOE7JW9L+yyreq1rCDquLDriqUg7IKs7JqpIOyLnCDtlYTsiJgpPC9zcGFuPiZuYnNwOyZuYnNwOzxhIGhyZWY9Imh0dHBzOi8vZ3VpZGUuemtlZXAuc3BhY2UvNTU5ZTAyYWItODllYS00M2FiLTgxOWMtMWY3ZjkyZTkzODQ1IiBzdHlsZT0iY29sb3I6I0VENUM0Mzt0ZXh0LWRlY29yYXRpb246bm9uZTtmb250LXdlaWdodDo2MDA7Ij7qsIDsnbTrk5wg67O06riwIOKGkjwvYT48L3RkPjwvdHI+CjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYm9yZGVyOjFweCBzb2xpZCAjZTVlN2ViO2JvcmRlci1yYWRpdXM6MTBweDtib3JkZXItbGVmdDo0cHggc29saWQgI0VENUM0MzsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjE4cHggMjJweDsiPgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTJweDtmb250LXdlaWdodDo3MDA7Y29sb3I6I0VENUM0MzttYXJnaW4tYm90dG9tOjRweDsiPlNURVAgMzwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTVweDtmb250LXdlaWdodDo3MDA7Y29sb3I6IzExMTgyNzttYXJnaW4tYm90dG9tOjZweDsiPuqzoOqwnSjsiJjsmqnqsIApIOygleuztCDsl4XroZzrk5w8L2Rpdj4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjEzcHg7Y29sb3I6IzZiNzI4MDttYXJnaW4tYm90dG9tOjEycHg7Ij7slYTrnpgg65GQIOqwgOyngCDrsKnrspUg7KSRIO2VmOuCmOulvCDshKDtg53tlZjsl6wg7JeF66Gc65Oc7ZWY7Iuc66m0IOuQqeuLiOuLpC48L2Rpdj4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmOWZhZmI7Ym9yZGVyLXJhZGl1czo2cHg7d2lkdGg6MTAwJTsiPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggMTRweDtmb250LXNpemU6MTNweDtjb2xvcjojMzc0MTUxO2JvcmRlci1ib3R0b206MXB4IHNvbGlkICNlNWU3ZWI7Ij7ikaAg6rOg6rCdIOygleuztCArIOqzhOyVvS/ssq3qtawg7KCV67O0IO2VqOq7mCDsl4XroZzrk5wmbmJzcDsmbmJzcDs8YSBocmVmPSJodHRwczovL2d1aWRlLnprZWVwLnNwYWNlLzEwZGVhMzBjLWVlNmYtODBlNC1iMjZiLWNkZjY3MGFjNjFlNSIgc3R5bGU9ImNvbG9yOiNFRDVDNDM7dGV4dC1kZWNvcmF0aW9uOm5vbmU7Zm9udC13ZWlnaHQ6NjAwOyI+6rCA7J2065OcIOuztOq4sCDihpI8L2E+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjEwcHggMTRweDtmb250LXNpemU6MTNweDtjb2xvcjojMzc0MTUxOyI+4pGhIO2Yke2ajCDrjbDsnbTthLAg6riw67CYIOyImOyaqeqwgCDsoJXrs7Trp4wg7JeF66Gc65OcJm5ic3A7Jm5ic3A7PGEgaHJlZj0iaHR0cHM6Ly9ndWlkZS56a2VlcC5zcGFjZS8yZmI5MjY0ZS01YWYyLTQzM2EtODQ2My04MDkwOTUxOWM4YzYiIHN0eWxlPSJjb2xvcjojRUQ1QzQzO3RleHQtZGVjb3JhdGlvbjpub25lO2ZvbnQtd2VpZ2h0OjYwMDsiPuqwgOydtOuTnCDrs7TquLAg4oaSPC9hPjwvdGQ+PC90cj4KPC90YWJsZT48L3RkPjwvdHI+PC90YWJsZT48L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MTBweCA0MHB4IDAgNDBweDsiPgo8dGFibGUgcm9sZT0icHJlc2VudGF0aW9uIiB3aWR0aD0iMTAwJSIgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJib3JkZXI6MXB4IHNvbGlkICNlNWU3ZWI7Ym9yZGVyLXJhZGl1czoxMHB4O2JvcmRlci1sZWZ0OjRweCBzb2xpZCAjRUQ1QzQzOyI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MThweCAyMnB4OyI+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OjcwMDtjb2xvcjojRUQ1QzQzO21hcmdpbi1ib3R0b206NHB4OyI+U1RFUCA0PC9kaXY+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxNXB4O2ZvbnQtd2VpZ2h0OjcwMDtjb2xvcjojMTExODI3O21hcmdpbi1ib3R0b206NnB4OyI+7KeB7JuQIOuTseuhnSDrsI8g7Iq57J24PC9kaXY+Cjx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZjlmYWZiO2JvcmRlci1yYWRpdXM6NnB4O3dpZHRoOjEwMCU7bWFyZ2luLWJvdHRvbToxMnB4OyI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MTBweCAxNHB4IDRweCAxNHB4O2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiMzNzQxNTE7Ij4K4pGgIOyngeybkOuTpOydtCDqsJzrs4Qg7ZqM7JuQ6rCA7J6FIOynhO2WiSAmbmJzcDsKPGEgaHJlZj0iaHR0cHM6Ly9hcHAuemtlZXAuc3BhY2UiIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7YmFja2dyb3VuZC1jb2xvcjojRUQ1QzQzO2NvbG9yOiNmZmY7dGV4dC1kZWNvcmF0aW9uOm5vbmU7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6NzAwO3BhZGRpbmc6M3B4IDEwcHg7Ym9yZGVyLXJhZGl1czo0cHg7dmVydGljYWwtYWxpZ246bWlkZGxlOyI+7KCQ6rKA7J6QIOyVsSDrsJTroZzqsIDquLAg4oaXPC9hPgo8L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6NHB4IDE0cHg7Zm9udC1zaXplOjEzcHg7Y29sb3I6IzM3NDE1MTsiPuKRoSDqsIDsnoUg7IucIOyekOuPmeycvOuhnCDqsIDsnoUg7Iq57J24IOyalOyyrSDrsJzsg508L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6NHB4IDE0cHg7Zm9udC1zaXplOjEzcHg7Y29sb3I6IzM3NDE1MTsiPuKRoiDqtIDrpqzsnpDqsIAg7Iq57J247ZWY66m0IOyCrOyaqSDqsIDriqU8L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6NHB4IDE0cHggMTBweCAxNHB4O2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiMzNzQxNTE7Ij7ikaMg6rSA66as7J6Q6rCAIOyCrOyghOyXkCDsp4Hsm5Ag7KCV67O0IOuTseuhnSDsi5wg4oaSIOyKueyduCDsl4bsnbQg67CU66GcIOydtOyaqSDqsIDriqU8L3RkPjwvdHI+CjwvdGFibGU+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxMnB4O2NvbG9yOiM5Y2EzYWY7bWFyZ2luLWJvdHRvbToxMHB4OyI+7LSI6riwIO2FjOyKpO2KuCDsi5zsl5DripQg7J2867aAIOyduOybkOunjCDrk7HroZ3tlZjshZTrj4Qg65Cp64uI64ukLjwvZGl2Pgo8YSBocmVmPSJodHRwczovL2d1aWRlLnprZWVwLnNwYWNlLzEwZGVhMzBjLWVlNmYtODBjYi1hMzQzLWRjNDExN2Y1ZTI3NCIgc3R5bGU9ImNvbG9yOiNFRDVDNDM7dGV4dC1kZWNvcmF0aW9uOm5vbmU7Zm9udC1zaXplOjEzcHg7Zm9udC13ZWlnaHQ6NjAwOyI+7KeB7JuQIOuTseuhnSDqsIDsnbTrk5wg67O06riwIOKGkjwvYT4KPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjI4cHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZmZmOGY3O2JvcmRlcjoxcHggc29saWQgI2ZjZDVjYztib3JkZXItcmFkaXVzOjEwcHg7Ij4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoyMHB4IDI0cHg7Ij4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiMxMTE4Mjc7bWFyZ2luLWJvdHRvbTo4cHg7Ij7sspjsnYwg7IKs7Jqp7ZWY7IukIOuVjCDqvK0g7LC46rOg7ZW07KO87IS47JqUPC9kaXY+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxM3B4O2xpbmUtaGVpZ2h0OjEuOTtjb2xvcjojNGI1NTYzOyI+7LKY7J2M7JeQ64qUIOuCr+yEpOyWtOyEnCDslrTroLXqsowg64qQ6ru07KeA64qUIOqyg+ydtCDri7nsl7Dtlanri4jri6QuPGJyLz7stIjquLAg7IS47YyF7J2AIOyggO2drOqwgCDsp4HsoJEg64+E7JmA65Oc66as6rOgIOyeiOycvOuLiCDrtoDri7Qg6rCW7KeAIOuniOyLnOqzoCDtjrjtlZjqsowg7Jew6529IOyjvOyEuOyalC48L2Rpdj4KPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjIwcHggNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZjlmYWZiO2JvcmRlcjoxcHggc29saWQgI2U1ZTdlYjtib3JkZXItcmFkaXVzOjEwcHg7Ij4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoyMHB4IDI0cHg7Ij4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiMxMTE4Mjc7bWFyZ2luLWJvdHRvbTo4cHg7Ij7qtIDrpqzsnpAg7KCE7LK0IOqwgOydtOuTnDwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTNweDtsaW5lLWhlaWdodDoxLjg7Y29sb3I6IzRiNTU2MzttYXJnaW4tYm90dG9tOjE0cHg7Ij7rqqjrk6Ag7IS47YyFIOuwqeuyleydhCDri6jqs4Trs4TroZwg7ZmV7J247ZWY7IukIOyImCDsnojsirXri4jri6QuPC9kaXY+CjxhIGhyZWY9Imh0dHBzOi8vZ3VpZGUuemtlZXAuc3BhY2UiIHN0eWxlPSJkaXNwbGF5OmlubGluZS1ibG9jaztiYWNrZ3JvdW5kLWNvbG9yOiNFRDVDNDM7Y29sb3I6I2ZmZmZmZjt0ZXh0LWRlY29yYXRpb246bm9uZTtmb250LXNpemU6MTRweDtmb250LXdlaWdodDo2MDA7cGFkZGluZzoxMXB4IDIwcHg7Ym9yZGVyLXJhZGl1czo4cHg7Ij7qtIDrpqzsnpAg6rCA7J2065OcIOuwlOuhnOqwgOq4sDwvYT4KPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPgo8dHI+PHRkIHN0eWxlPSJwYWRkaW5nOjAgNDBweCAwIDQwcHg7Ij4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgd2lkdGg9IjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZmZmOGY3O2JvcmRlcjoxcHggc29saWQgI2ZjZDVjYztib3JkZXItcmFkaXVzOjEwcHg7Ij4KPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoyMHB4IDI0cHg7Ij4KPGRpdiBzdHlsZT0iZm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiMxMTE4Mjc7bWFyZ2luLWJvdHRvbTo4cHg7Ij7wn5OEIOq1kOycoeyekOujjDwvZGl2Pgo8ZGl2IHN0eWxlPSJmb250LXNpemU6MTNweDtsaW5lLWhlaWdodDoxLjg7Y29sb3I6IzRiNTU2MzttYXJnaW4tYm90dG9tOjE0cHg7Ij4K7KeA7YK0RSDtlITroZzqt7jrnqgg7IKs7JqpIOq1kOycoeyekOujjOulvCDslYTrnpgg67KE7Yq87J2EIO2Gte2VtCDri6TsmrTroZzrk5wg7ZWY7IukIOyImCDsnojsirXri4jri6QuCjwvZGl2Pgo8YSBocmVmPSJodHRwczovL2t3YW5nLXllYWwuZ2l0aHViLmlvL3prZWVwLWF1dG8tbWFpbC9lZHUucGRmIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO2JhY2tncm91bmQtY29sb3I6I0VENUM0Mztjb2xvcjojZmZmZmZmO3RleHQtZGVjb3JhdGlvbjpub25lO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OjYwMDtwYWRkaW5nOjExcHggMjBweDtib3JkZXItcmFkaXVzOjhweDsiPuq1kOycoeyekOujjCDri6TsmrTroZzrk5wg4oaTPC9hPgo8L3RkPjwvdHI+PC90YWJsZT48L3RkPjwvdHI+Cjx0cj48dGQgc3R5bGU9InBhZGRpbmc6MzJweCA0MHB4IDQwcHggNDBweDtib3JkZXItdG9wOjFweCBzb2xpZCAjZjBmMGYwOyI+CjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxNHB4O2xpbmUtaGVpZ2h0OjEuOTtjb2xvcjojMzc0MTUxOyI+Cu2VhOyalO2VmOyLnOuptCDsoITtmZQg65iQ64qUIOuwqeusuCDsp4Dsm5Drj4Qg6rCA64ql7ZWp64uI64ukLjxici8+7Y647ZWY6rKMIOyXsOudvSDso7zsi5zrqbQg67mg66W06rKMIOuPhOyZgOuTnOumrOqyoOyKteuLiOuLpC48YnIvPjxici8+CuqwkOyCrO2VqeuLiOuLpC48YnIvPuuniOydtOyKpO2EsCDsnKDqtJHsl7Qg65Oc66a8Cjxici8+PGJyLz4KPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgY2VsbHNwYWNpbmc9IjAiIGNlbGxwYWRkaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJib3JkZXItdG9wOjJweCBzb2xpZCAjRUQ1QzQzO21hcmdpbi10b3A6MTJweDtwYWRkaW5nLXRvcDoxNHB4O3dpZHRoOjEwMCU7Ij4KICA8dHI+CiAgICA8dGQgc3R5bGU9InBhZGRpbmctdG9wOjEycHg7Ij4KICAgICAgPGRpdiBzdHlsZT0iZm9udC1zaXplOjEzcHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiMxMTE4Mjc7Ij7snKDqtJHsl7QgJm5ic3A7PHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OjQwMDtjb2xvcjojNmI3MjgwO2ZvbnQtc2l6ZToxMnB4OyI+fCDrp4jsnbTsiqTthLA8L3NwYW4+PC9kaXY+CiAgICAgIDxkaXYgc3R5bGU9Im1hcmdpbi10b3A6NnB4O2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiM0YjU1NjM7bGluZS1oZWlnaHQ6MS45OyI+CiAgICAgICAgRS4gPHNwYW4gc3R5bGU9ImNvbG9yOiNFRDVDNDM7Ij5qYWphZG9vQG15c3Rlci5jby5rcjwvc3Bhbj48YnIvPgogICAgICAgIE0uIDxhIGhyZWY9InRlbDowMTAtOTQzMC0yMjE3IiBzdHlsZT0iY29sb3I6I0VENUM0Mzt0ZXh0LWRlY29yYXRpb246bm9uZTsiPjAxMC05NDMwLTIyMTc8L2E+CiAgICAgIDwvZGl2PgogICAgPC90ZD4KICA8L3RyPgo8L3RhYmxlPgo8L2Rpdj48L3RkPjwvdHI+CjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+CjwvYm9keT48L2h0bWw+";
+var EMAIL_TEMPLATE = decodeURIComponent(escape(atob(_tpl)));
 
-// EMAIL_TEMPLATE defined above
-
-window.onload = function() {
-  emailjs.init(EJ_PUBLIC);
-  renderHistory();
-};
+emailjs.init(EJ_PUBLIC);
 
 function getValues() {
   return {
-    company : document.getElementById('company').value.trim(),
-    name    : document.getElementById('name').value.trim(),
-    email   : document.getElementById('email').value.trim(),
+    company: document.getElementById("company").value.trim(),
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim()
   };
-}
-
-function validate() {
-  const { company, name, email } = getValues();
-  if (!company || !name || !email) {
-    showStatus('error', '❌ 회사명, 성함, 이메일을 모두 입력해주세요.');
-    return false;
-  }
-  return true;
 }
 
 function getFilledTemplate(company, name) {
   return EMAIL_TEMPLATE
-    .replace(/{{company}}/g, company)
-    .replace(/{{name}}/g, name);
+    .replace(/\{\{company\}\}/g, company || "(회사명)")
+    .replace(/\{\{name\}\}/g, name || "(성함)");
 }
 
 function openPreview() {
-  const company = document.getElementById('company').value.trim() || '(회사명)';
-  const name    = document.getElementById('name').value.trim() || '(성함)';
-  const html = getFilledTemplate(company, name);
-  const modal = document.getElementById('previewModal');
-  const container = document.getElementById('previewContainer');
-  container.innerHTML = html;
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+  var v = getValues();
+  document.getElementById("previewContainer").innerHTML = getFilledTemplate(v.company, v.name);
+  document.getElementById("previewModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 function closePreview() {
-  document.getElementById('previewModal').style.display = 'none';
-  document.getElementById('previewContainer').innerHTML = '';
-  document.body.style.overflow = '';
-}
-
-async function sendMail() {
-  if (!validate()) return;
-  const { company, name, email } = getValues();
-  const btn = document.querySelector('.btn-primary');
-  btn.disabled = true;
-  showStatus('loading', '📨 발송 중입니다...');
-
-  try {
-    await emailjs.send(EJ_SERVICE, EJ_TEMPLATE, {
-      to_email     : email,
-      to_name      : name + ' 대표님',
-      company      : company,
-      subject      : '[마이스터] 지킴E 프로그램 사용 및 초기 세팅 안내',
-      html_content : getFilledTemplate(company, name),
-    });
-    showStatus('success', '✅ ' + company + ' ' + name + ' 대표님께 메일을 발송했습니다!');
-    addHistory(company, name, email);
-    document.getElementById('company').value = '';
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-  } catch(err) {
-    showStatus('error', '❌ 발송 실패: ' + (err.text || JSON.stringify(err)));
-  }
-  btn.disabled = false;
+  document.getElementById("previewModal").style.display = "none";
+  document.getElementById("previewContainer").innerHTML = "";
+  document.body.style.overflow = "";
 }
 
 function showStatus(type, msg) {
-  const el = document.getElementById('status');
-  el.className = 'status ' + type;
+  var el = document.getElementById("status");
+  el.className = "status " + type;
   el.textContent = msg;
 }
 
+function sendMail() {
+  var v = getValues();
+  if (!v.company || !v.name || !v.email) {
+    showStatus("error", "회사명, 성함, 이메일을 모두 입력해주세요.");
+    return;
+  }
+  var btn = document.querySelector(".btn-primary");
+  btn.disabled = true;
+  showStatus("loading", "발송 중입니다...");
+  emailjs.send(EJ_SERVICE, EJ_TEMPLATE, {
+    to_email: v.email,
+    to_name: v.name + " 대표님",
+    company: v.company,
+    subject: "[마이스터] 지킴E 프로그램 사용 및 초기 세팅 안내",
+    html_content: getFilledTemplate(v.company, v.name)
+  }).then(function() {
+    showStatus("success", v.company + " " + v.name + " 대표님께 메일을 발송했습니다!");
+    addHistory(v.company, v.name, v.email);
+    document.getElementById("company").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    btn.disabled = false;
+  }, function(err) {
+    showStatus("error", "발송 실패: " + (err.text || JSON.stringify(err)));
+    btn.disabled = false;
+  });
+}
+
 function addHistory(company, name, email) {
-  const history = JSON.parse(localStorage.getItem('zkeep_history') || '[]');
-  history.unshift({ company, name, email, time: new Date().toLocaleString('ko-KR') });
-  if (history.length > 20) history.pop();
-  localStorage.setItem('zkeep_history', JSON.stringify(history));
+  var h = JSON.parse(localStorage.getItem("zkeep_history") || "[]");
+  h.unshift({company:company, name:name, email:email, time:new Date().toLocaleString("ko-KR")});
+  if (h.length > 20) h.pop();
+  localStorage.setItem("zkeep_history", JSON.stringify(h));
   renderHistory();
 }
 
 function renderHistory() {
-  const history = JSON.parse(localStorage.getItem('zkeep_history') || '[]');
-  if (!history.length) return;
-  document.getElementById('historySection').style.display = 'block';
-  document.getElementById('historyList').inner
+  var h = JSON.parse(localStorage.getItem("zkeep_history") || "[]");
+  if (!h.length) return;
+  document.getElementById("historySection").style.display = "block";
+  document.getElementById("historyList").innerHTML = h.map(function(x) {
+    return "<div class=\"history-item\"><span>" + x.time + " · " + x.company + " " + x.name + "</span><span class=\"sent-badge\">발송완료</span></div>";
+  }).join("");
+}
+
+renderHistory();
+</script>
+</body>
+</html>
