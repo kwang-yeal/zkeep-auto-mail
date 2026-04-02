@@ -126,7 +126,6 @@
 
   <button class="btn-primary" onclick="sendMail()">✉️ 안내 메일 발송</button>
   <button class="btn-secondary" onclick="openPreview()">👁 발송 전 미리보기</button>
-  <a href="https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf" target="_blank" download style="display:block;width:100%;padding:12px;background:#fff;color:#374151;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:10px;text-align:center;text-decoration:none;font-family:inherit;box-sizing:border-box;">📄 교육자료 다운로드</a>
 
   <div class="status" id="status"></div>
 
@@ -191,7 +190,10 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html>
 <div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 1</div>
 <div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">사업자 계정 생성 <span style="font-size:13px;font-weight:400;color:#6b7280;">(관리자 계정)</span></div>
 <div style="font-size:13px;color:#6b7280;margin-bottom:12px;">회사의 관리자용 사업자 계정을 먼저 생성합니다.</div>
-<a href="https://guide.zkeep.space/23633657-85ba-409c-8dcd-13b22bac4f39" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">사업자 계정 생성 가이드 보기 →</a>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr>
+<td style="padding-right:10px;"><a href="https://guide.zkeep.space/23633657-85ba-409c-8dcd-13b22bac4f39" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">사업자 계정 생성 가이드 보기 →</a></td>
+<td><a href="https://site.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:5px 12px;border-radius:5px;">관리자 페이지 바로가기 ↗</a></td>
+</tr></table>
 </td></tr></table></td></tr>
 <tr><td style="padding:10px 40px 0 40px;">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
@@ -219,7 +221,10 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html>
 <div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 4</div>
 <div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">직원 등록 및 승인</div>
 <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;margin-bottom:12px;">
-<tr><td style="padding:10px 14px 4px 14px;font-size:13px;color:#374151;">① 직원들이 개별 회원가입 진행</td></tr>
+<tr><td style="padding:10px 14px 4px 14px;font-size:13px;color:#374151;">
+① 직원들이 개별 회원가입 진행 &nbsp;
+<a href="https://app.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;">점검자 앱 바로가기 ↗</a>
+</td></tr>
 <tr><td style="padding:4px 14px;font-size:13px;color:#374151;">② 가입 시 자동으로 가입 승인 요청 발생</td></tr>
 <tr><td style="padding:4px 14px;font-size:13px;color:#374151;">③ 관리자가 승인하면 사용 가능</td></tr>
 <tr><td style="padding:4px 14px 10px 14px;font-size:13px;color:#374151;">④ 관리자가 사전에 직원 정보 등록 시 → 승인 없이 바로 이용 가능</td></tr>
@@ -239,6 +244,15 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html>
 <div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">관리자 전체 가이드</div>
 <div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">모든 세팅 방법을 단계별로 확인하실 수 있습니다.</div>
 <a href="https://guide.zkeep.space" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">관리자 가이드 바로가기</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:0 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;">
+<tr><td style="padding:20px 24px;">
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">📄 교육자료</div>
+<div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">
+지킴E 프로그램 사용 교육자료를 아래 버튼을 통해 다운로드 하실 수 있습니다.
+</div>
+<a href="https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">교육자료 다운로드 ↓</a>
 </td></tr></table></td></tr>
 <tr><td style="padding:32px 40px 40px 40px;border-top:1px solid #f0f0f0;">
 <div style="font-size:14px;line-height:1.9;color:#374151;">
