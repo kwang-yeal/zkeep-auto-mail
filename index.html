@@ -122,7 +122,7 @@
   <label>성함</label>
   <input id="name" type="text" placeholder="예: 홍길동"/>
   <label>이메일 주소</label>
-  <input id="email" type="email" placeholder="예: hong(at)example.com"/>
+  <input id="email" type="email" placeholder="예: hong@example.com"/>
 
   <button class="btn-primary" onclick="sendMail()">✉️ 안내 메일 발송</button>
   <button class="btn-secondary" onclick="openPreview()">👁 발송 전 미리보기</button>
@@ -147,13 +147,143 @@
   </div>
 </div>
 
-<script id="emailTpl" type="application/json">"<!DOCTYPE html>\n<html lang=\"ko\">\n<head><meta charset=\"UTF-8\"/></head>\n<body style=\"margin:0;padding:0;background-color:#f5f6f8;font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;color:#222222;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f5f6f8;margin:0;padding:24px 0;\">\n<tr><td align=\"center\">\n<table role=\"presentation\" width=\"680\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:680px;max-width:680px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;\">\n<tr><td style=\"padding:28px 40px 20px 40px;border-bottom:3px solid #ED5C43;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n<tr>\n<td style=\"vertical-align:middle;\"><img src=\"https://kwang-yeal.github.io/zkeep-auto-mail/logo.png\" alt=\"\uc9c0\ud0b4E \ub85c\uace0\" width=\"120\" style=\"display:block;width:120px;height:auto;\"/></td>\n<td align=\"right\" style=\"vertical-align:middle;\"><div style=\"font-size:12px;color:#9ca3af;\">\ub9c8\uc774\uc2a4\ud130 | \uc9c0\ud0b4E \uc0ac\uc6a9 \uc548\ub0b4</div></td>\n</tr></table></td></tr>\n<tr><td style=\"padding:28px 40px 0 40px;\"><div style=\"font-size:24px;font-weight:700;color:#111827;line-height:1.4;\">\ud504\ub85c\uadf8\ub7a8 \uc0ac\uc6a9 \ubc0f \ucd08\uae30 \uc138\ud305 \uc548\ub0b4</div></td></tr>\n<tr><td style=\"padding:20px 40px 8px 40px;font-size:15px;line-height:1.9;color:#374151;\">\n\uc548\ub155\ud558\uc138\uc694, {{company}} {{name}} \ub300\ud45c\ub2d8.<br/>\ub9c8\uc774\uc2a4\ud130 \uc720\uad11\uc5f4\uc785\ub2c8\ub2e4.<br/><br/>\n\uba3c\uc800 \ubc14\uc058\uc2e0 \uc640\uc911\uc5d0\ub3c4 \uad50\uc721\uc5d0 \ucc38\uc11d\ud574 \uc8fc\uc154\uc11c \uc9c4\uc2ec\uc73c\ub85c \uac10\uc0ac\ub4dc\ub9bd\ub2c8\ub2e4.<br/>\n\uc9e7\uc740 \uc2dc\uac04 \ub0b4\uc5d0 \ub9ce\uc740 \ub0b4\uc6a9\uc744 \uc804\ub2ec\ub4dc\ub9ac\ub2e4 \ubcf4\ub2c8 \ubd80\uc871\ud55c \ubd80\ubd84\uc774 \uc788\uc5c8\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4.<br/>\n\uc774\uc6a9 \uc911 \uad81\uae08\ud558\uc2e0 \uc810\uc740 \uc5b8\uc81c\ub4e0 \ud3b8\ud558\uac8c \ubb38\uc758 \uc8fc\uc2dc\uba74 \uc0c1\uc138\ud788 \uc548\ub0b4\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4.<br/><br/>\n\ub610\ud55c, \ub9d0\uc500\ub4dc\ub9b0 \uac83\ucc98\ub7fc {{company}} \uc804\uccb4 \ub3c4\uc785\uc744 \uac80\ud1a0\ud558\uc2e4 \uacbd\uc6b0, \ucd08\ub300\ud574 \uc8fc\uc2dc\uba74 \ucd08\uae30 \uc138\ud305 \ubc0f \uc0ac\ub0b4 \uc804\uc9c1\uc6d0\uc744 \ub300\uc0c1\uc73c\ub85c \ud55c \uad50\uc721\uc744 \uc9c0\uc6d0\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4.\n</td></tr>\n<tr><td style=\"padding:28px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#fff8f7;border:1px solid #ED5C43;border-radius:10px;\">\n<tr><td style=\"padding:24px;\">\n<div style=\"font-size:16px;font-weight:700;color:#ED5C43;margin-bottom:4px;\">\u2726 \ud504\ub85c\uadf8\ub7a8 \uc0ac\uc6a9\uc744 \uc704\ud55c \uc804\uccb4 \ud750\ub984 (\uac00\uc7a5 \uc911\uc694)</div>\n<div style=\"font-size:14px;line-height:1.8;color:#6b7280;margin-bottom:16px;\">\uc9c0\ud0b4E\ub294 \uc544\ub798 \uc21c\uc11c\ub85c \uc0ac\uc6a9\uc774 \uc2dc\uc791\ub429\ub2c8\ub2e4.</div>\n<table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n<tr><td style=\"padding:6px 0;vertical-align:top;\"><span style=\"display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;\">1</span></td><td style=\"padding:6px 0;font-size:15px;font-weight:600;color:#111827;\">\uc0ac\uc5c5\uc790 \uacc4\uc815 \uc0dd\uc131 <span style=\"font-weight:400;color:#6b7280;\">(\uad00\ub9ac\uc790 \uacc4\uc815)</span></td></tr>\n<tr><td style=\"padding:6px 0;vertical-align:top;\"><span style=\"display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;\">2</span></td><td style=\"padding:6px 0;font-size:15px;font-weight:600;color:#111827;\">\uc9c1\uc6d0 \uac1c\ubcc4 \ud68c\uc6d0\uac00\uc785 \uc9c4\ud589</td></tr>\n<tr><td style=\"padding:6px 0;vertical-align:top;\"><span style=\"display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;\">3</span></td><td style=\"padding:6px 0;font-size:15px;font-weight:600;color:#111827;\">\uad00\ub9ac\uc790 \uc2b9\uc778 \ud6c4 \uc810\uac80\uc790 \uc571 \uc0ac\uc6a9 \uac00\ub2a5</td></tr>\n</table></td></tr></table></td></tr>\n<tr><td style=\"padding:36px 40px 8px 40px;\">\n<div style=\"font-size:20px;font-weight:700;color:#111827;margin-bottom:6px;\">\ucd08\uae30 \uc138\ud305 \ub2e8\uacc4 \uc548\ub0b4</div>\n<div style=\"font-size:14px;color:#6b7280;\">\uc544\ub798 \ub2e8\uacc4 \uc21c\uc11c\ub300\ub85c \uc9c4\ud589\ud558\uc2dc\uba74 \ub429\ub2c8\ub2e4.</div>\n</td></tr>\n<tr><td style=\"padding:10px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #d1d5db;\">\n<tr><td style=\"padding:18px 22px;\">\n<div style=\"font-size:12px;font-weight:700;color:#9ca3af;margin-bottom:4px;\">STEP 0</div>\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;\">\ube60\ub978 \uc774\uc6a9 \ud750\ub984 \uc774\ud574</div>\n<div style=\"font-size:13px;color:#6b7280;margin-bottom:12px;\">\ucc98\uc74c \uc2dc\uc791 \uc804 \uc804\uccb4 \ud750\ub984\uc744 \uac00\ubccd\uac8c \ud655\uc778\ud574\uc8fc\uc138\uc694.</div>\n<a href=\"https://guide.zkeep.space/16d43012-c483-4e2f-acf6-48236cb5bd9e\" style=\"color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;\">\ube60\ub978 \uc774\uc6a9\uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:10px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;\">\n<tr><td style=\"padding:18px 22px;\">\n<div style=\"font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;\">STEP 1</div>\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;\">\uc0ac\uc5c5\uc790 \uacc4\uc815 \uc0dd\uc131 <span style=\"font-size:13px;font-weight:400;color:#6b7280;\">(\uad00\ub9ac\uc790 \uacc4\uc815)</span>&nbsp;&nbsp;<a href=\"https://site.zkeep.space\" target=\"_blank\" style=\"display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;\">\uad00\ub9ac\uc790 \ud398\uc774\uc9c0 \u2197</a></div>\n<div style=\"font-size:13px;color:#6b7280;margin-bottom:12px;\">\ud68c\uc0ac\uc758 \uad00\ub9ac\uc790\uc6a9 \uc0ac\uc5c5\uc790 \uacc4\uc815\uc744 \uba3c\uc800 \uc0dd\uc131\ud569\ub2c8\ub2e4.</div>\n<a href=\"https://guide.zkeep.space/23633657-85ba-409c-8dcd-13b22bac4f39\" style=\"color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;\">\uc0ac\uc5c5\uc790 \uacc4\uc815 \uc0dd\uc131 \uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:10px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;\">\n<tr><td style=\"padding:18px 22px;\">\n<div style=\"font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;\">STEP 2</div>\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;\">\uc0ac\uc5c5\uc790 \uc815\ubcf4 \ub4f1\ub85d</div>\n<div style=\"font-size:13px;color:#6b7280;margin-bottom:12px;\">\uacc4\uc815 \uc0dd\uc131 \ud6c4 \ucd94\uac00 \uc0ac\uc5c5\uc790 \uc815\ubcf4\ub97c \ub4f1\ub85d\ud558\ub294 \ub2e8\uacc4\uc785\ub2c8\ub2e4.</div>\n<table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f9fafb;border-radius:6px;width:100%;\">\n<tr><td style=\"padding:10px 14px;font-size:13px;color:#374151;\">\u2460 \uae30\ubcf8 \uc815\ubcf4 \ub4f1\ub85d&nbsp;&nbsp;<a href=\"https://guide.zkeep.space/77ff0b5b-1d73-48f5-adcd-07d3f7af8dda\" style=\"color:#ED5C43;text-decoration:none;font-weight:600;\">\uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a></td></tr>\n<tr><td style=\"padding:0 14px 10px 14px;font-size:13px;color:#374151;\">\u2461 \uacc4\uc88c \ubc0f \uc9c0\ub85c \uc815\ubcf4 \ub4f1\ub85d <span style=\"color:#9ca3af;\">(\u203b \uacc4\uc57d/\uccad\uad6c \uae30\ub2a5 \uc0ac\uc6a9 \uc2dc \ud544\uc218)</span>&nbsp;&nbsp;<a href=\"https://guide.zkeep.space/559e02ab-89ea-43ab-819c-1f7f92e93845\" style=\"color:#ED5C43;text-decoration:none;font-weight:600;\">\uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a></td></tr>\n</table></td></tr></table></td></tr>\n<tr><td style=\"padding:10px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;\">\n<tr><td style=\"padding:18px 22px;\">\n<div style=\"font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;\">STEP 3</div>\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;\">\uace0\uac1d(\uc218\uc6a9\uac00) \uc815\ubcf4 \uc5c5\ub85c\ub4dc</div>\n<div style=\"font-size:13px;color:#6b7280;margin-bottom:12px;\">\uc544\ub798 \ub450 \uac00\uc9c0 \ubc29\ubc95 \uc911 \ud558\ub098\ub97c \uc120\ud0dd\ud558\uc5ec \uc5c5\ub85c\ub4dc\ud558\uc2dc\uba74 \ub429\ub2c8\ub2e4.</div>\n<table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f9fafb;border-radius:6px;width:100%;\">\n<tr><td style=\"padding:10px 14px;font-size:13px;color:#374151;border-bottom:1px solid #e5e7eb;\">\u2460 \uace0\uac1d \uc815\ubcf4 + \uacc4\uc57d/\uccad\uad6c \uc815\ubcf4 \ud568\uaed8 \uc5c5\ub85c\ub4dc&nbsp;&nbsp;<a href=\"https://guide.zkeep.space/10dea30c-ee6f-80e4-b26b-cdf670ac61e5\" style=\"color:#ED5C43;text-decoration:none;font-weight:600;\">\uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a></td></tr>\n<tr><td style=\"padding:10px 14px;font-size:13px;color:#374151;\">\u2461 \ud611\ud68c \ub370\uc774\ud130 \uae30\ubc18 \uc218\uc6a9\uac00 \uc815\ubcf4\ub9cc \uc5c5\ub85c\ub4dc&nbsp;&nbsp;<a href=\"https://guide.zkeep.space/2fb9264e-5af2-433a-8463-80909519c8c6\" style=\"color:#ED5C43;text-decoration:none;font-weight:600;\">\uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a></td></tr>\n</table></td></tr></table></td></tr>\n<tr><td style=\"padding:10px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;\">\n<tr><td style=\"padding:18px 22px;\">\n<div style=\"font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;\">STEP 4</div>\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;\">\uc9c1\uc6d0 \ub4f1\ub85d \ubc0f \uc2b9\uc778</div>\n<table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f9fafb;border-radius:6px;width:100%;margin-bottom:12px;\">\n<tr><td style=\"padding:10px 14px 4px 14px;font-size:13px;color:#374151;\">\n\u2460 \uc9c1\uc6d0\ub4e4\uc774 \uac1c\ubcc4 \ud68c\uc6d0\uac00\uc785 \uc9c4\ud589 &nbsp;\n<a href=\"https://app.zkeep.space\" target=\"_blank\" style=\"display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;\">\uc810\uac80\uc790 \uc571 \ubc14\ub85c\uac00\uae30 \u2197</a>\n</td></tr>\n<tr><td style=\"padding:4px 14px;font-size:13px;color:#374151;\">\u2461 \uac00\uc785 \uc2dc \uc790\ub3d9\uc73c\ub85c \uac00\uc785 \uc2b9\uc778 \uc694\uccad \ubc1c\uc0dd</td></tr>\n<tr><td style=\"padding:4px 14px;font-size:13px;color:#374151;\">\u2462 \uad00\ub9ac\uc790\uac00 \uc2b9\uc778\ud558\uba74 \uc0ac\uc6a9 \uac00\ub2a5</td></tr>\n<tr><td style=\"padding:4px 14px 10px 14px;font-size:13px;color:#374151;\">\u2463 \uad00\ub9ac\uc790\uac00 \uc0ac\uc804\uc5d0 \uc9c1\uc6d0 \uc815\ubcf4 \ub4f1\ub85d \uc2dc \u2192 \uc2b9\uc778 \uc5c6\uc774 \ubc14\ub85c \uc774\uc6a9 \uac00\ub2a5</td></tr>\n</table>\n<div style=\"font-size:12px;color:#9ca3af;margin-bottom:10px;\">\ucd08\uae30 \ud14c\uc2a4\ud2b8 \uc2dc\uc5d0\ub294 \uc77c\ubd80 \uc778\uc6d0\ub9cc \ub4f1\ub85d\ud558\uc154\ub3c4 \ub429\ub2c8\ub2e4.</div>\n<a href=\"https://guide.zkeep.space/10dea30c-ee6f-80cb-a343-dc4117f5e274\" style=\"color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;\">\uc9c1\uc6d0 \ub4f1\ub85d \uac00\uc774\ub4dc \ubcf4\uae30 \u2192</a>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:28px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;\">\n<tr><td style=\"padding:20px 24px;\">\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;\">\ucc98\uc74c \uc0ac\uc6a9\ud558\uc2e4 \ub54c \uaf2d \ucc38\uace0\ud574\uc8fc\uc138\uc694</div>\n<div style=\"font-size:13px;line-height:1.9;color:#4b5563;\">\ucc98\uc74c\uc5d0\ub294 \ub0af\uc124\uc5b4\uc11c \uc5b4\ub835\uac8c \ub290\uaef4\uc9c0\ub294 \uac83\uc774 \ub2f9\uc5f0\ud569\ub2c8\ub2e4.<br/>\ucd08\uae30 \uc138\ud305\uc740 \uc800\ud76c\uac00 \uc9c1\uc811 \ub3c4\uc640\ub4dc\ub9ac\uace0 \uc788\uc73c\ub2c8 \ubd80\ub2f4 \uac16\uc9c0 \ub9c8\uc2dc\uace0 \ud3b8\ud558\uac8c \uc5f0\ub77d \uc8fc\uc138\uc694.</div>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:20px 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;\">\n<tr><td style=\"padding:20px 24px;\">\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;\">\uad00\ub9ac\uc790 \uc804\uccb4 \uac00\uc774\ub4dc</div>\n<div style=\"font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;\">\ubaa8\ub4e0 \uc138\ud305 \ubc29\ubc95\uc744 \ub2e8\uacc4\ubcc4\ub85c \ud655\uc778\ud558\uc2e4 \uc218 \uc788\uc2b5\ub2c8\ub2e4.</div>\n<a href=\"https://guide.zkeep.space\" style=\"display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;\">\uad00\ub9ac\uc790 \uac00\uc774\ub4dc \ubc14\ub85c\uac00\uae30</a>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:0 40px 0 40px;\">\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;\">\n<tr><td style=\"padding:20px 24px;\">\n<div style=\"font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;\">\ud83d\udcc4 \uad50\uc721\uc790\ub8cc</div>\n<div style=\"font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;\">\n\uc9c0\ud0b4E \ud504\ub85c\uadf8\ub7a8 \uc0ac\uc6a9 \uad50\uc721\uc790\ub8cc\ub97c \uc544\ub798 \ubc84\ud2bc\uc744 \ud1b5\ud574 \ub2e4\uc6b4\ub85c\ub4dc \ud558\uc2e4 \uc218 \uc788\uc2b5\ub2c8\ub2e4.\n</div>\n<a href=\"https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf\" target=\"_blank\" style=\"display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;\">\uad50\uc721\uc790\ub8cc \ub2e4\uc6b4\ub85c\ub4dc \u2193</a>\n</td></tr></table></td></tr>\n<tr><td style=\"padding:32px 40px 40px 40px;border-top:1px solid #f0f0f0;\">\n<div style=\"font-size:14px;line-height:1.9;color:#374151;\">\n\ud544\uc694\ud558\uc2dc\uba74 \uc804\ud654 \ub610\ub294 \ubc29\ubb38 \uc9c0\uc6d0\ub3c4 \uac00\ub2a5\ud569\ub2c8\ub2e4.<br/>\ud3b8\ud558\uac8c \uc5f0\ub77d \uc8fc\uc2dc\uba74 \ube60\ub974\uac8c \ub3c4\uc640\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4.<br/><br/>\n\uac10\uc0ac\ud569\ub2c8\ub2e4.<br/>\ub9c8\uc774\uc2a4\ud130 \uc720\uad11\uc5f4 \ub4dc\ub9bc\n<br/><br/>\n<table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border-top:2px solid #ED5C43;margin-top:12px;padding-top:14px;width:100%;\">\n  <tr>\n    <td style=\"padding-top:12px;\">\n      <div style=\"font-size:13px;font-weight:700;color:#111827;\">\uc720\uad11\uc5f4 &nbsp;<span style=\"font-weight:400;color:#6b7280;font-size:12px;\">| \ub9c8\uc774\uc2a4\ud130</span></div>\n      <div style=\"margin-top:6px;font-size:12px;color:#4b5563;line-height:1.9;\">\n        E. <span style=\"color:#ED5C43;\">jajadoo@myster.co.kr</span><br/>\n        M. <a href=\"tel:010-9430-2217\" style=\"color:#ED5C43;text-decoration:none;\">010-9430-2217</a>\n      </div>\n    </td>\n  </tr>\n</table>\n</div></td></tr>\n</table></td></tr></table>\n</body></html>"</script>
+<script>
+const EMAIL_TEMPLATE = `<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"/></head>
+<body style="margin:0;padding:0;background-color:#f5f6f8;font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;color:#222222;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f5f6f8;margin:0;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="680" cellspacing="0" cellpadding="0" border="0" style="width:680px;max-width:680px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
+<tr><td style="padding:28px 40px 20px 40px;border-bottom:3px solid #ED5C43;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td style="vertical-align:middle;"><img src="https://kwang-yeal.github.io/zkeep-auto-mail/logo.png" alt="지킴E 로고" width="120" style="display:block;width:120px;height:auto;"/></td>
+<td align="right" style="vertical-align:middle;"><div style="font-size:12px;color:#9ca3af;">마이스터 | 지킴E 사용 안내</div></td>
+</tr></table></td></tr>
+<tr><td style="padding:28px 40px 0 40px;"><div style="font-size:24px;font-weight:700;color:#111827;line-height:1.4;">프로그램 사용 및 초기 세팅 안내</div></td></tr>
+<tr><td style="padding:20px 40px 8px 40px;font-size:15px;line-height:1.9;color:#374151;">
+안녕하세요, {{company}} {{name}} 대표님.<br/>마이스터 유광열입니다.<br/><br/>
+먼저 바쁘신 와중에도 교육에 참석해 주셔서 진심으로 감사드립니다.<br/>
+짧은 시간 내에 많은 내용을 전달드리다 보니 부족한 부분이 있었을 수 있습니다.<br/>
+이용 중 궁금하신 점은 언제든 편하게 문의 주시면 상세히 안내드리겠습니다.<br/><br/>
+또한, 말씀드린 것처럼 {{company}} 전체 도입을 검토하실 경우, 초대해 주시면 초기 세팅 및 사내 전직원을 대상으로 한 교육을 지원드리겠습니다.
+</td></tr>
+<tr><td style="padding:28px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #ED5C43;border-radius:10px;">
+<tr><td style="padding:24px;">
+<div style="font-size:16px;font-weight:700;color:#ED5C43;margin-bottom:4px;">✦ 프로그램 사용을 위한 전체 흐름 (가장 중요)</div>
+<div style="font-size:14px;line-height:1.8;color:#6b7280;margin-bottom:16px;">지킴E는 아래 순서로 사용이 시작됩니다.</div>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">1</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">사업자 계정 생성 <span style="font-weight:400;color:#6b7280;">(관리자 계정)</span></td></tr>
+<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">2</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">직원 개별 회원가입 진행</td></tr>
+<tr><td style="padding:6px 0;vertical-align:top;"><span style="display:inline-block;background-color:#ED5C43;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:10px;">3</span></td><td style="padding:6px 0;font-size:15px;font-weight:600;color:#111827;">관리자 승인 후 점검자 앱 사용 가능</td></tr>
+</table></td></tr></table></td></tr>
+<tr><td style="padding:36px 40px 8px 40px;">
+<div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:6px;">초기 세팅 단계 안내</div>
+<div style="font-size:14px;color:#6b7280;">아래 단계 순서대로 진행하시면 됩니다.</div>
+</td></tr>
+<tr><td style="padding:10px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #d1d5db;">
+<tr><td style="padding:18px 22px;">
+<div style="font-size:12px;font-weight:700;color:#9ca3af;margin-bottom:4px;">STEP 0</div>
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">빠른 이용 흐름 이해</div>
+<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">처음 시작 전 전체 흐름을 가볍게 확인해주세요.</div>
+<a href="https://guide.zkeep.space/16d43012-c483-4e2f-acf6-48236cb5bd9e" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">빠른 이용가이드 보기 →</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:10px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
+<tr><td style="padding:18px 22px;">
+<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 1</div>
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">사업자 계정 생성 <span style="font-size:13px;font-weight:400;color:#6b7280;">(관리자 계정)</span>&nbsp;&nbsp;<a href="https://site.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;">관리자 페이지 ↗</a></div>
+<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">회사의 관리자용 사업자 계정을 먼저 생성합니다.</div>
+<a href="https://guide.zkeep.space/23633657-85ba-409c-8dcd-13b22bac4f39" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">사업자 계정 생성 가이드 보기 →</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:10px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
+<tr><td style="padding:18px 22px;">
+<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 2</div>
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">사업자 정보 등록</div>
+<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">계정 생성 후 추가 사업자 정보를 등록하는 단계입니다.</div>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;">
+<tr><td style="padding:10px 14px;font-size:13px;color:#374151;">① 기본 정보 등록&nbsp;&nbsp;<a href="https://guide.zkeep.space/77ff0b5b-1d73-48f5-adcd-07d3f7af8dda" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
+<tr><td style="padding:0 14px 10px 14px;font-size:13px;color:#374151;">② 계좌 및 지로 정보 등록 <span style="color:#9ca3af;">(※ 계약/청구 기능 사용 시 필수)</span>&nbsp;&nbsp;<a href="https://guide.zkeep.space/559e02ab-89ea-43ab-819c-1f7f92e93845" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
+</table></td></tr></table></td></tr>
+<tr><td style="padding:10px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
+<tr><td style="padding:18px 22px;">
+<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 3</div>
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">고객(수용가) 정보 업로드</div>
+<div style="font-size:13px;color:#6b7280;margin-bottom:12px;">아래 두 가지 방법 중 하나를 선택하여 업로드하시면 됩니다.</div>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;">
+<tr><td style="padding:10px 14px;font-size:13px;color:#374151;border-bottom:1px solid #e5e7eb;">① 고객 정보 + 계약/청구 정보 함께 업로드&nbsp;&nbsp;<a href="https://guide.zkeep.space/10dea30c-ee6f-80e4-b26b-cdf670ac61e5" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;color:#374151;">② 협회 데이터 기반 수용가 정보만 업로드&nbsp;&nbsp;<a href="https://guide.zkeep.space/2fb9264e-5af2-433a-8463-80909519c8c6" style="color:#ED5C43;text-decoration:none;font-weight:600;">가이드 보기 →</a></td></tr>
+</table></td></tr></table></td></tr>
+<tr><td style="padding:10px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e5e7eb;border-radius:10px;border-left:4px solid #ED5C43;">
+<tr><td style="padding:18px 22px;">
+<div style="font-size:12px;font-weight:700;color:#ED5C43;margin-bottom:4px;">STEP 4</div>
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:6px;">직원 등록 및 승인</div>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border-radius:6px;width:100%;margin-bottom:12px;">
+<tr><td style="padding:10px 14px 4px 14px;font-size:13px;color:#374151;">
+① 직원들이 개별 회원가입 진행 &nbsp;
+<a href="https://app.zkeep.space" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#fff;text-decoration:none;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle;">점검자 앱 바로가기 ↗</a>
+</td></tr>
+<tr><td style="padding:4px 14px;font-size:13px;color:#374151;">② 가입 시 자동으로 가입 승인 요청 발생</td></tr>
+<tr><td style="padding:4px 14px;font-size:13px;color:#374151;">③ 관리자가 승인하면 사용 가능</td></tr>
+<tr><td style="padding:4px 14px 10px 14px;font-size:13px;color:#374151;">④ 관리자가 사전에 직원 정보 등록 시 → 승인 없이 바로 이용 가능</td></tr>
+</table>
+<div style="font-size:12px;color:#9ca3af;margin-bottom:10px;">초기 테스트 시에는 일부 인원만 등록하셔도 됩니다.</div>
+<a href="https://guide.zkeep.space/10dea30c-ee6f-80cb-a343-dc4117f5e274" style="color:#ED5C43;text-decoration:none;font-size:13px;font-weight:600;">직원 등록 가이드 보기 →</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:28px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;">
+<tr><td style="padding:20px 24px;">
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">처음 사용하실 때 꼭 참고해주세요</div>
+<div style="font-size:13px;line-height:1.9;color:#4b5563;">처음에는 낯설어서 어렵게 느껴지는 것이 당연합니다.<br/>초기 세팅은 저희가 직접 도와드리고 있으니 부담 갖지 마시고 편하게 연락 주세요.</div>
+</td></tr></table></td></tr>
+<tr><td style="padding:20px 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;">
+<tr><td style="padding:20px 24px;">
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">관리자 전체 가이드</div>
+<div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">모든 세팅 방법을 단계별로 확인하실 수 있습니다.</div>
+<a href="https://guide.zkeep.space" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">관리자 가이드 바로가기</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:0 40px 0 40px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fff8f7;border:1px solid #fcd5cc;border-radius:10px;">
+<tr><td style="padding:20px 24px;">
+<div style="font-size:15px;font-weight:700;color:#111827;margin-bottom:8px;">📄 교육자료</div>
+<div style="font-size:13px;line-height:1.8;color:#4b5563;margin-bottom:14px;">
+지킴E 프로그램 사용 교육자료를 아래 버튼을 통해 다운로드 하실 수 있습니다.
+</div>
+<a href="https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf" target="_blank" style="display:inline-block;background-color:#ED5C43;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:8px;">교육자료 다운로드 ↓</a>
+</td></tr></table></td></tr>
+<tr><td style="padding:32px 40px 40px 40px;border-top:1px solid #f0f0f0;">
+<div style="font-size:14px;line-height:1.9;color:#374151;">
+필요하시면 전화 또는 방문 지원도 가능합니다.<br/>편하게 연락 주시면 빠르게 도와드리겠습니다.<br/><br/>
+감사합니다.<br/>마이스터 유광열 드림
+<br/><br/>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="border-top:2px solid #ED5C43;margin-top:12px;padding-top:14px;width:100%;">
+  <tr>
+    <td style="padding-top:12px;">
+      <div style="font-size:13px;font-weight:700;color:#111827;">유광열 &nbsp;<span style="font-weight:400;color:#6b7280;font-size:12px;">| 마이스터</span></div>
+      <div style="margin-top:6px;font-size:12px;color:#4b5563;line-height:1.9;">
+        E. <span style="color:#ED5C43;">jajadoo@myster.co.kr</span><br/>
+        M. <a href="tel:010-9430-2217" style="color:#ED5C43;text-decoration:none;">010-9430-2217</a>
+      </div>
+    </td>
+  </tr>
+</table>
+</div></td></tr>
+</table></td></tr></table>
+</body></html>`;
+</script>
 <script>
 const EJ_PUBLIC   = 'j3JdosvV4IsWAhQvO';
 const EJ_SERVICE  = 'myster-guide';
 const EJ_TEMPLATE = 'myster-edu1';
 
-const EMAIL_TEMPLATE = JSON.parse(document.getElementById('emailTpl').textContent);
+// EMAIL_TEMPLATE defined above
 
 window.onload = function() {
   emailjs.init(EJ_PUBLIC);
