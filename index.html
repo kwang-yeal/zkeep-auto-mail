@@ -314,15 +314,18 @@ function openPreview() {
   if (!validate()) return;
   const { company, name } = getValues();
   const html = getFilledTemplate(company, name);
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const url = URL.createObjectURL(blob);
   const box = document.getElementById('previewBox');
   const frame = document.getElementById('previewFrame');
-  frame.srcdoc = html;
+  frame.src = url;
   box.style.display = 'block';
-  box.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => box.scrollIntoView({ behavior: 'smooth' }), 100);
 }
 
 function closePreview() {
   document.getElementById('previewBox').style.display = 'none';
+  document.getElementById('previewFrame').src = '';
 }
 
 async function sendMail() {
