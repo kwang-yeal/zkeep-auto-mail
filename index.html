@@ -115,7 +115,7 @@
   </div>
 
   <h1>지킴E 안내 메일 발송</h1>
-  <p class="subtitle">받는 분 정보를 입력하면 <strong>jajadoo@myster.co.kr</strong>에서<br/>템플릿 이메일이 자동 발송됩니다.</p>
+  <p class="subtitle">받는 분 정보를 입력하면 <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="046e656e65606b6b44697d777061762a676b2a6f76">[email&#160;protected]</a></strong>에서<br/>템플릿 이메일이 자동 발송됩니다.</p>
 
   <label>회사명</label>
   <input id="company" type="text" placeholder="예: 케이에스전기안전관리단"/>
@@ -126,6 +126,7 @@
 
   <button class="btn-primary" onclick="sendMail()">✉️ 안내 메일 발송</button>
   <button class="btn-secondary" onclick="openPreview()">👁 발송 전 미리보기</button>
+  <a href="https://kwang-yeal.github.io/zkeep-auto-mail/edu.pdf" target="_blank" download style="display:block;width:100%;padding:12px;background:#fff;color:#374151;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:10px;text-align:center;text-decoration:none;font-family:inherit;box-sizing:border-box;">📄 교육자료 다운로드</a>
 
   <div class="status" id="status"></div>
 
@@ -136,7 +137,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const EJ_PUBLIC   = 'j3JdosvV4IsWAhQvO';
 const EJ_SERVICE  = 'myster-guide';
 const EJ_TEMPLATE = 'myster-edu1';
@@ -243,6 +244,18 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html>
 <div style="font-size:14px;line-height:1.9;color:#374151;">
 필요하시면 전화 또는 방문 지원도 가능합니다.<br/>편하게 연락 주시면 빠르게 도와드리겠습니다.<br/><br/>
 감사합니다.<br/>마이스터 유광열 드림
+<br/><br/>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="border-top:2px solid #ED5C43;margin-top:12px;padding-top:14px;width:100%;">
+  <tr>
+    <td style="padding-top:12px;">
+      <div style="font-size:13px;font-weight:700;color:#111827;">유광열 &nbsp;<span style="font-weight:400;color:#6b7280;font-size:12px;">| 마이스터</span></div>
+      <div style="margin-top:6px;font-size:12px;color:#4b5563;line-height:1.9;">
+        E. <a href="mailto:jajadoo@myster.co.kr" style="color:#ED5C43;text-decoration:none;">jajadoo@myster.co.kr</a><br/>
+        M. <a href="tel:010-9430-2217" style="color:#ED5C43;text-decoration:none;">010-9430-2217</a>
+      </div>
+    </td>
+  </tr>
+</table>
 </div></td></tr>
 </table></td></tr></table>
 </body></html>`;
@@ -327,13 +340,4 @@ function renderHistory() {
   const history = JSON.parse(localStorage.getItem('zkeep_history') || '[]');
   if (!history.length) return;
   document.getElementById('historySection').style.display = 'block';
-  document.getElementById('historyList').innerHTML = history.map(h =>
-    `<div class="history-item">
-      <span>${h.time} &nbsp;·&nbsp; ${h.company} ${h.name}</span>
-      <span class="sent-badge">✓ 발송완료</span>
-    </div>`
-  ).join('');
-}
-</script>
-</body>
-</html>
+  document.getElementById('historyList').inner
